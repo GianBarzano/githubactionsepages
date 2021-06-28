@@ -1,0 +1,26 @@
+version: '3'
+services:
+  app: 
+    image: myangular:1.0
+    command: yarn run start
+    ports:
+      - 4200:4200
+      - 9876:9876
+    volumes:
+      - .:/usr/app/
+  
+  test: 
+    image: myangular:1.0
+    command: yarn run test
+    ports:
+      - 9876:9876
+    volumes:
+      - .:/usr/app/
+
+  testonce: 
+    image: myangular:1.0
+    command: yarn run testonce
+    ports:
+      - 9876:9876
+    volumes:
+      - .:/usr/app/
